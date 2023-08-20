@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbab82646e6248e09fe02e2b3ee337e0, type: 3}
+  m_Name: BlockData
+  m_EditorClassIdentifier: 
+  blockType: 1
+  colorsPrefabs:
+  - {fileID: 2011576978068059753, guid: 6dae8f21657e13b4da2a30202bd8bd59, type: 3}
+  - {fileID: 8478782217376450500, guid: fba7792048ba5d440b91ab4cb0b5603c, type: 3}
+  - {fileID: 3592241537089515985, guid: 15b9068b651fb8f42a863c02b196caff, type: 3}
+  - {fileID: 2863839728895283335, guid: a0d3d6a278f231d48988e1226a8dcffd, type: 3}
+  - {fileID: 2119476832663385328, guid: 0ddb51062e9889d49ba08e619141c2d4, type: 3}
+  - {fileID: 6437242414155803013, guid: 3fd951dab37a00a46b888fe8edb88598, type: 3}
+  numberPrefabs: []
