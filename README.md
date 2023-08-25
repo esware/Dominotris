@@ -27,12 +27,15 @@ Oyunun nasıl oynanacağına dair temel bilgileri verin. Kontrolleri, amaçları
 
 ## Ekran Görüntüleri
 
-<div style="display: flex; justify-content: space-between;">
-  <img src="![image_001_0000](https://github.com/esware/Dominotris/assets/48649947/b7f73426-d64c-4666-9c25-946824b4b79f)" alt="Ekran Görüntüsü 1" width="25%">
-  <img src="![image_002_0000](https://github.com/esware/Dominotris/assets/48649947/e14c0e67-84a7-4812-bef4-badb908df904)" alt="Ekran Görüntüsü 2" width="25%">
-  <img src="![image_002_0372](https://github.com/esware/Dominotris/assets/48649947/49567b22-1288-43bf-8905-d2300bacf669)" alt="Ekran Görüntüsü 2" width="25%">
-  <img src="![image_002_0507](https://github.com/esware/Dominotris/assets/48649947/e21f923e-ceb1-474a-a857-e1109479a339)" alt="Ekran Görüntüsü 2" width="25%">
+<div style="display: flex; flex-wrap: wrap; justify-content: center;">
+  <img src="https://github.com/esware/Dominotris/assets/48649947/b7f73426-d64c-4666-9c25-946824b4b79f.png" alt="Ekran Görüntüsü 1" width="40%">
+  <img src="https://github.com/esware/Dominotris/assets/48649947/e14c0e67-84a7-4812-bef4-badb908df904.png" alt="Ekran Görüntüsü 2" width="40%">
 </div>
+<div style="display: flex; flex-wrap: wrap; justify-content: center;">
+  <img src="https://github.com/esware/Dominotris/assets/48649947/49567b22-1288-43bf-8905-d2300bacf669.png" alt="Ekran Görüntüsü 3" width="40%">
+  <img src="https://github.com/esware/Dominotris/assets/48649947/e21f923e-ceb1-474a-a857-e1109479a339.png" alt="Ekran Görüntüsü 4" width="40%">
+</div>
+
 
 
 
