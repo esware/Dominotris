@@ -39,14 +39,3 @@ Projeyi çalıştırmak için unity gerekli olan unity surumu :
 
 
 -----------------------------------------------------------------
-## Geliştirme
-
-Katkıda bulunmak isteyen geliştiricilere adım adım talimatlar verin:
-
-1. `Ana Daldan` bir kopya alın
-2. Yeni bir dal oluşturun: `git checkout -b yeni-ozellik`
-3. Değişikliklerinizi yapın ve iyice test edin
-4. Değişiklikleri taahhüt edin: `git commit -am 'Yeni özellik: Açıklama'`
-5. Dalınıza itme yapın: `git push origin yeni-ozellik`
-6. Birleştirme İsteği (Pull Request) oluşturun
-komut örnekleri buraya gelebilir
