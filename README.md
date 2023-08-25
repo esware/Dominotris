@@ -1,8 +1,26 @@
-# Dominotris Gameplays & ScreenShots
+# Dominotris 
+> Dominotris is a puzzle game.
+>
+> Some basic Git commands are:
+```
+git status
+git add
+git commit
+```
+<p align="center">
+  <img src=" " alt="Resim 1">
+  <img src=" " alt="Resim 2">
+</p>
 
-![image](https://github.com/esware/Dominotris/assets/48649947/f74b63f3-df04-4646-b85c-e9f1f2a72781)
+<div align="center">
+  <img src="![image](https://github.com/esware/Dominotris/assets/48649947/d2395ea9-bb20-49f3-bd03-e22b8fabb3e4)" alt="Resim 1">
+  <img src="![image](https://github.com/esware/Dominotris/assets/48649947/9754939c-faca-4209-a949-51525bf3c663)" alt="Resim 2">
+</div>
 
-![image](https://github.com/esware/Dominotris/assets/48649947/9754939c-faca-4209-a949-51525bf3c663)
+
+
+## Gameplays & ScreenShots
+
 
 https://github.com/esware/Dominotris/assets/48649947/c55efcc2-3d48-4ae9-bdd7-f9de58fcf49e
 
