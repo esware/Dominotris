@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 4199989288944562130}
   - component: {fileID: 2358702665903412292}
   - component: {fileID: 1380763880555485735}
-  - component: {fileID: 8478782217376450500}
   - component: {fileID: 644986062621272724}
   - component: {fileID: -8599625636328989774}
+  - component: {fileID: 8478782217376450500}
+  - component: {fileID: 1521047410837824422}
   m_Layer: 5
   m_Name: BlockGreen
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,18 +80,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8478782217376450500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8675198462642641795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e77add133f149b087c9e34c0810aa80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &644986062621272724
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -120,3 +109,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 100, y: 100, z: 100}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8478782217376450500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8675198462642641795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e77add133f149b087c9e34c0810aa80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1521047410837824422
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8675198462642641795}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 49b6e43f38edb154d95aba918f285b72, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbab82646e6248e09fe02e2b3ee337e0, type: 3}
   m_Name: BlockData
   m_EditorClassIdentifier: 
-  blockType: 1
+  blockType: 0
   colorsPrefabs:
   - {fileID: 2011576978068059753, guid: 6dae8f21657e13b4da2a30202bd8bd59, type: 3}
   - {fileID: 8478782217376450500, guid: fba7792048ba5d440b91ab4cb0b5603c, type: 3}
@@ -20,4 +20,10 @@ MonoBehaviour:
   - {fileID: 2863839728895283335, guid: a0d3d6a278f231d48988e1226a8dcffd, type: 3}
   - {fileID: 2119476832663385328, guid: 0ddb51062e9889d49ba08e619141c2d4, type: 3}
   - {fileID: 6437242414155803013, guid: 3fd951dab37a00a46b888fe8edb88598, type: 3}
-  numberPrefabs: []
+  numberPrefabs:
+  - {fileID: 3592241537089515985, guid: f2fd2a4646e193749aa4bda19a3a6879, type: 3}
+  - {fileID: 2011576978068059753, guid: 3585dd0ccb673cb43bb1c901918d97a1, type: 3}
+  - {fileID: 8478782217376450500, guid: 5ef06e79fcfc42f4db7942b654c0bc7d, type: 3}
+  - {fileID: 2863839728895283335, guid: a4e683afe49904041a8060d694feccc9, type: 3}
+  - {fileID: 2119476832663385328, guid: 56d653f8aaa6f8541865f1e9503ef186, type: 3}
+  - {fileID: 6437242414155803013, guid: 92cfa61a513fcd24eb63a07dd3a5ae5f, type: 3}
