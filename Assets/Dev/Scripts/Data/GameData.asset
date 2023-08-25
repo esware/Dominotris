@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cbab82646e6248e09fe02e2b3ee337e0, type: 3}
-  m_Name: BlockData
+  m_Name: GameData
   m_EditorClassIdentifier: 
-  blockType: 0
+  blockType: 1
   colorsPrefabs:
   - {fileID: 2011576978068059753, guid: 6dae8f21657e13b4da2a30202bd8bd59, type: 3}
   - {fileID: 8478782217376450500, guid: fba7792048ba5d440b91ab4cb0b5603c, type: 3}
@@ -27,3 +27,4 @@ MonoBehaviour:
   - {fileID: 2863839728895283335, guid: a4e683afe49904041a8060d694feccc9, type: 3}
   - {fileID: 2119476832663385328, guid: 56d653f8aaa6f8541865f1e9503ef186, type: 3}
   - {fileID: 6437242414155803013, guid: 92cfa61a513fcd24eb63a07dd3a5ae5f, type: 3}
+  gameMode: 1

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using Dev.Scripts.Managers;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering.Universal;
@@ -15,7 +17,7 @@ namespace Dev.Scripts.Tiles
     {
         #region Variables
 
-        [SerializeField] private BlockData blockData;
+        [SerializeField] private GameData gameData;
         [SerializeField] private Transform blockCarrier;
         [SerializeField] private AnimationCurve rotationCurve;
         [SerializeField] private List<Block> allBlocks;
@@ -23,6 +25,7 @@ namespace Dev.Scripts.Tiles
         public List<Block> blocks;
         
         private bool _isRotating = false;
+        private Block _previousSelectedBlock;
 
         #endregion
 
@@ -36,7 +39,7 @@ namespace Dev.Scripts.Tiles
         {
             GameEvents.OnBlockPleaced+=CreateNewBlock;
             GameEvents.OnNewGame += NewGame;
-            GameEvents.OnModeChanged += ChangeMode;
+            GameEvents.OnBlockTypeChanged += ChangeBlockType;
             GameEvents.BlockPlaced += allBlocks.Add;
         }
 
@@ -45,7 +48,7 @@ namespace Dev.Scripts.Tiles
             allBlocks.Remove(block);
         }
         
-        private void ChangeMode(BlockType type)
+        private void ChangeBlockType(BlockType type)
         {
             List<Block> blocksToRemove = new List<Block>();
             List<Block> blocksToAdd = new List<Block>();
@@ -56,8 +59,8 @@ namespace Dev.Scripts.Tiles
                 {
                     if (block.GetTile)
                     {
-                        var colorPrefab = Random.Range(0, blockData.colorsPrefabs.Length - 1);
-                        var newBlock = Instantiate(blockData.colorsPrefabs[colorPrefab], block.GetTile.transform);
+                        var colorPrefab = Random.Range(0, gameData.colorsPrefabs.Length - 1);
+                        var newBlock = Instantiate(gameData.colorsPrefabs[colorPrefab], block.GetTile.transform);
                         
                         newBlock.GetTile = block.GetTile;
                         newBlock.targetRectTransform = block.targetRectTransform;
@@ -90,8 +93,8 @@ namespace Dev.Scripts.Tiles
                 {
                     if (block.GetTile)
                     {
-                        var numberPrefabs = Random.Range(0, blockData.colorsPrefabs.Length - 1);
-                        var newBlock = Instantiate(blockData.numberPrefabs[numberPrefabs], block.GetTile.transform);
+                        var numberPrefabs = Random.Range(0, gameData.colorsPrefabs.Length - 1);
+                        var newBlock = Instantiate(gameData.numberPrefabs[numberPrefabs], block.GetTile.transform);
 
                         newBlock.GetTile = block.GetTile;
                         newBlock.targetRectTransform = block.targetRectTransform;
@@ -148,52 +151,95 @@ namespace Dev.Scripts.Tiles
 
         private void CreateNewBlock()
         {
+            transform.rotation = Quaternion.identity;
+            blockCarrier.transform.rotation =Quaternion.identity;
+            
             var instance = BoardManager.Instance;
             instance.DestroyCompletedLanes();
 
             blocks.Clear();
-            
-            transform.rotation = Quaternion.identity;
-            blockCarrier.transform.rotation =Quaternion.identity;
-            
-            
-            if (blockData.blockType  == BlockType.Color)
-            {
-                for (int i = 0; i < 2; i++)
-                {
-                    var b = blockData.colorsPrefabs[Random.Range(0, blockData.colorsPrefabs.Length - 1)];
 
-                    var  block = Instantiate(b, blockCarrier);
-                    blocks.Add(block);
-                } 
-                
+            CreateBlockForGameMode(gameData.gameMode);
+            
+            if (instance.IsGameOver(blocks))
+                StartCoroutine(DoGameOver());
+
+        }
+
+        private void CreateBlockForGameMode(GameMode gameMode)
+        {
+            if (gameMode == GameMode.Hard)
+            {
+                if (allBlocks.Count > 0)
+                {
+                    CreatePreferredBlocks();
+                }
+                else
+                {
+                    CreateRandomBlocks();
+                }
             }
             else
             {
-                for (int i = 0; i < 2; i++)
-                {
-                    var b = blockData.numberPrefabs[Random.Range(0, blockData.numberPrefabs.Length - 1)];
-
-                    var  block = Instantiate(b, blockCarrier);
-                    blocks.Add(block);
-                } 
+                CreateRandomBlocks();
             }
-            
-            if (instance.IsGameOver(blocks))
+        }
+        
+        private void CreateRandomBlocks()
+        {
+            for (int i = 0; i < 2; i++)
             {
-                 Time.timeScale = 2f;
-                 foreach (var b in allBlocks)
-                 {
-                     if (b!=null)
-                     {
-                         b.GetComponent<Collider>().isTrigger = false;
-                         b.GetComponent<BoxCollider>().size = new Vector3(110, 110, 110);
-                         var rigid =  b.GetComponent<Rigidbody>();
-                         rigid.useGravity = true;
-                     }
-                 }
+                var b = gameData.blockType == BlockType.Color ?
+                    gameData.colorsPrefabs[Random.Range(0, gameData.colorsPrefabs.Length)] :
+                    gameData.numberPrefabs[Random.Range(0, gameData.numberPrefabs.Length)];
+
+                var block = Instantiate(b, blockCarrier);
+                blocks.Add(block);
             }
-           
+        }
+        
+        private void CreatePreferredBlocks()
+        {
+            Dictionary<Block, int> blockCounts = Helper.CountBlocksInScene(allBlocks);
+
+            for (int i = 0; i < 2; i++)
+            {
+                Block selectedBlock;
+                
+                do
+                {
+                    selectedBlock = gameData.blockType == BlockType.Color 
+                        ? gameData.colorsPrefabs[Helper.ChoosePreferredBlockIndex(blockCounts,gameData)]
+                        : gameData.numberPrefabs[Helper.ChoosePreferredBlockIndex(blockCounts,gameData)];
+                }
+                while (selectedBlock == _previousSelectedBlock);
+
+                _previousSelectedBlock = selectedBlock;
+
+                var block = Instantiate(selectedBlock, blockCarrier);
+                blocks.Add(block);
+            }
+        }
+        
+        private IEnumerator DoGameOver()
+        {
+            foreach (var b in allBlocks)
+            {
+                if (b!=null)
+                {
+                    b.GetComponent<Collider>().isTrigger = false;
+                    b.GetComponent<BoxCollider>().size = new Vector3(110, 110, 110);
+                    var rigid =  b.GetComponent<Rigidbody>();
+                    rigid.useGravity = true;
+                }
+
+                yield return null;
+            }
+
+            yield return new WaitForSecondsRealtime(4f);
+            
+            BoardManager.Instance.CreateBoard();
+            NewGame();
         }
 
 

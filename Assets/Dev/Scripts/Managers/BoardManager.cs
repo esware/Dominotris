@@ -3,6 +3,7 @@ using Dev.Scripts;
 using Dev.Scripts.Managers;
 using Dev.Scripts.Tiles;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 public class BoardManager : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class BoardManager : MonoBehaviour
     [Header("Board")]
     [SerializeField] private Tile tilePrefab;
     [SerializeField] private RectTransform boardTransform;
-    [Space, Header("BlockData")] public BlockData blockData;
+    [Space, Header("BlockData")] public GameData gameData;
     
     #endregion
     
@@ -31,6 +32,8 @@ public class BoardManager : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 2f;
+        
         if (_instance == null)
         {
             _instance = this;
@@ -39,6 +42,7 @@ public class BoardManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
         CreateBoard();
     }
     
@@ -70,14 +74,18 @@ public class BoardManager : MonoBehaviour
         
     }
 
-    public void ClearBoard()
+    private void ClearBoard()
     {
-        foreach (Transform tile in boardTransform)
-        {
-            Destroy(tile.gameObject);
-        }
+        if (Tiles==null)
+            return;
         
-        Tiles = null;
+        if (Tiles.Length >0)
+        {
+            foreach (Tile tile in Tiles)
+            {
+                Destroy(tile.gameObject);
+            }
+        }
     }
     public bool CanBlockPlace(List<Block> blocks)
     {

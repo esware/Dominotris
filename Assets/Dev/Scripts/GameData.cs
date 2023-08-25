@@ -9,8 +9,10 @@ namespace Dev.Scripts.Tiles
         Color,
     }
     
-    [CreateAssetMenu(fileName = "BlockData",menuName = "EWGames/BlockData")]
-    public class BlockData:ScriptableObject
+    public enum GameMode{ Normal,Hard}
+    
+    [CreateAssetMenu(fileName = "GameData",menuName = "EWGames/GameData")]
+    public class GameData:ScriptableObject
     {
         public BlockType blockType;
 
@@ -19,6 +21,8 @@ namespace Dev.Scripts.Tiles
 
         [ShowIf("blockType", BlockType.Number)] 
         [SerializeField] public Block[] numberPrefabs;
-        
+
+        [SerializeField] public GameMode gameMode;
+
     }
 }

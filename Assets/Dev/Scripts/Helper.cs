@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Dev.Scripts.Managers;
 using Dev.Scripts.Tiles;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Dev.Scripts
@@ -80,6 +82,59 @@ namespace Dev.Scripts
         
                 return false;
             }
+            
+                    public static  Dictionary<Block, int> CountBlocksInScene(List<Block> allBlocks)
+                    {
+                        Dictionary<Block, int> blockCounts = new Dictionary<Block, int>();
+            
+                        foreach (var blockPrefab in allBlocks)
+                        {
+                            int count = allBlocks.Count(b => b.name == blockPrefab.name);
+                            blockCounts[blockPrefab] = count;
+                        }
+            
+                        return blockCounts;
+                    }
+                    
+                    public static  int ChoosePreferredBlockIndex(Dictionary<Block, int> blockCounts,GameData gameData)
+                    {
+                        float totalBlockCount = blockCounts.Count;
+                        float[] blockProbabilities = new float[blockCounts.Count];
+            
+                        int index = 0;
+                        foreach (var kvp in blockCounts)
+                        {
+                            float probability = 1.0f - (kvp.Value / totalBlockCount);
+                            blockProbabilities[index] = probability;
+                            index++;
+                        }
+            
+                        int maxIndex = Mathf.Min(blockProbabilities.Length, gameData.colorsPrefabs.Length);
+                        int selectedBlockIndex = RandomIndexWithProbabilities(blockProbabilities);
+                        
+                        selectedBlockIndex = Mathf.Clamp(selectedBlockIndex, 0, maxIndex - 1);
+                        return selectedBlockIndex;
+                    }
+                    
+                    private static int RandomIndexWithProbabilities(float[] probabilities)
+                    {
+                        float total = probabilities.Sum();
+                        float randomValue = Random.Range(0f, total);
+                        float cumulativeProb = 0f;
+            
+                        for (int i = 0; i < probabilities.Length; i++)
+                        {
+                            cumulativeProb += probabilities[i];
+                            if (randomValue <= cumulativeProb)
+                            {
+                                return i;
+                            }
+                        }
+            
+                        return probabilities.Length - 1; 
+                    }
+            
+                    
 
     }
 }

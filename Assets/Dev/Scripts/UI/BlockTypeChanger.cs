@@ -9,19 +9,19 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using  UnityEngine.UI;
 
-public class ModeChanger : MonoBehaviour,IPointerClickHandler
+public class BlockTypeChanger : MonoBehaviour,IPointerClickHandler
 {
     
     public BlockType blockType;
-    
+
     [Header("Mode Sprite")]
     [SerializeField] private Sprite modeOnSprite;
     [SerializeField] private Sprite modeOffSprite;
     
     private void Start()
     {
-        SetButtonSprite(BoardManager.Instance.blockData.blockType);
-        GameEvents.OnModeChanged += SetButtonSprite;
+        SetButtonSprite(BoardManager.Instance.gameData.blockType);
+        GameEvents.OnBlockTypeChanged += SetButtonSprite;
     }
     private void SetButtonSprite(BlockType b)
     {
@@ -37,10 +37,10 @@ public class ModeChanger : MonoBehaviour,IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (BoardManager.Instance.blockData.blockType != blockType)
+        if (BoardManager.Instance.gameData.blockType != blockType)
         {
-            BoardManager.Instance.blockData.blockType = blockType;
-            GameEvents.OnModeChanged?.Invoke(blockType);
+            BoardManager.Instance.gameData.blockType = blockType;
+            GameEvents.OnBlockTypeChanged?.Invoke(blockType);
         }
     }
 }
