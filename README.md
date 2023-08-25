@@ -1,23 +1,60 @@
-# Dominotris 
-> Dominotris is a puzzle game.
->
+# Dominotris
+
+Dominotris bir casual puzzle oyunudur . Oyunda ayni renk bloklari veya ayni sayiya sahip bloklari eslestirerek bloklari yok etmemiz gerekiyor .
+Oyunda 2 farkli zorluk modu ile birlikte , oyun sirasinda degistirebilecegimiz bir oyun temasi bulunmakta . 
+Oyunun oynanisini etkilemesede oyundaki bloklar renkler ve sayi bloklari seklinde ayrilmaktadir.
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="https://github.com/esware/Dominotris/assets/48649947/f70664b4-f2fd-467b-b55f-d8f583085856" alt="Ekran Görüntüsü 1" width="45%">
+  <img src="https://github.com/esware/Dominotris/assets/48649947/bba9498c-1450-42ed-b0ad-6fd67681e5e8" alt="Ekran Görüntüsü 2" width="45%">
+</div>
+
+## Başlangıç
+
+Bu adımlarla projeyi yerel makinenizde çalıştırabilirsiniz.
+
+### Gereksinimler
+
+Projeyi çalıştırmak için unity gerekli olan unity surumu :
+
+- Unity 2021.3.15f1
+
+Gereksinimleri nasıl kuracağınıza dair adımları buraya ekleyin.
+
+## Kullanım
+
+Oyunun nasıl oynanacağına dair temel bilgileri verin. Kontrolleri, amaçları ve oyuncuların neler yapabileceği gibi detayları açıklayın.
+
+## Ekran Görüntüleri
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="![image_001_0000](https://github.com/esware/Dominotris/assets/48649947/b7f73426-d64c-4666-9c25-946824b4b79f)" alt="Ekran Görüntüsü 1" width="25%">
+  <img src="![image_002_0000](https://github.com/esware/Dominotris/assets/48649947/e14c0e67-84a7-4812-bef4-badb908df904)" alt="Ekran Görüntüsü 2" width="25%">
+  <img src="![image_002_0372](https://github.com/esware/Dominotris/assets/48649947/49567b22-1288-43bf-8905-d2300bacf669)" alt="Ekran Görüntüsü 2" width="25%">
+  <img src="![image_002_0507](https://github.com/esware/Dominotris/assets/48649947/e21f923e-ceb1-474a-a857-e1109479a339)" alt="Ekran Görüntüsü 2" width="25%">
+</div>
 
 
-![image](https://github.com/esware/Dominotris/assets/48649947/d2395ea9-bb20-49f3-bd03-e22b8fabb3e4)
-![image](https://github.com/esware/Dominotris/assets/48649947/9754939c-faca-4209-a949-51525bf3c663)
-
-## Gameplays & ScreenShots
-
-
-https://github.com/esware/Dominotris/assets/48649947/c55efcc2-3d48-4ae9-bdd7-f9de58fcf49e
-
-![image](https://github.com/esware/Dominotris/assets/48649947/d2395ea9-bb20-49f3-bd03-e22b8fabb3e4)
-
-![image](https://github.com/esware/Dominotris/assets/48649947/fd2f0d5f-e5bd-4f1e-b861-436b157090fe)
-
-![image](https://github.com/esware/Dominotris/assets/48649947/86d4ffd7-c379-455e-97f4-8d32e1063574)
-
-https://github.com/esware/Dominotris/assets/48649947/5a422beb-067c-4a36-9bfd-df22bd802c74
 
 
 
+
+
+## Oynanış Videosu
+
+[Video 1](https://github.com/esware/Dominotris/assets/48649947/95070373-82e4-4757-9a67-406132ea5403)
+[Video 2](https://github.com/esware/Dominotris/assets/48649947/39b5e83a-5b8e-40d6-aea0-17e9bc0b2b07)
+
+
+
+## Geliştirme
+
+Katkıda bulunmak isteyen geliştiricilere adım adım talimatlar verin:
+
+1. `Ana Daldan` bir kopya alın
+2. Yeni bir dal oluşturun: `git checkout -b yeni-ozellik`
+3. Değişikliklerinizi yapın ve iyice test edin
+4. Değişiklikleri taahhüt edin: `git commit -am 'Yeni özellik: Açıklama'`
+5. Dalınıza itme yapın: `git push origin yeni-ozellik`
+6. Birleştirme İsteği (Pull Request) oluşturun
+komut örnekleri buraya gelebilir
