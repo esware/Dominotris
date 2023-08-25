@@ -22,9 +22,7 @@ Projeyi çalıştırmak için unity gerekli olan unity surumu :
 
 Gereksinimleri nasıl kuracağınıza dair adımları buraya ekleyin.
 
-## Kullanım
 
-Oyunun nasıl oynanacağına dair temel bilgileri verin. Kontrolleri, amaçları ve oyuncuların neler yapabileceği gibi detayları açıklayın.
 
 ## Ekran Görüntüleri
 
